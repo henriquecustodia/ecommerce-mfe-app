@@ -4,7 +4,7 @@
   "projectType": "application",
   "prefix": "app",
   "sourceRoot": "apps/mfes/cart-mfe/src",
-  "tags": [],
+  "tags": ["type:mfe"],
   "targets": {
     "build": {
       "executor": "@angular-architects/native-federation:build",
@@ -40,26 +40,19 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/mfes/cart-mfe/jest.config.ts"
       }
     },
     "esbuild": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/mfes/cart-mfe",
         "index": "apps/mfes/cart-mfe/src/index.html",
         "browser": "apps/mfes/cart-mfe/src/main.ts",
-        "polyfills": [
-          "zone.js",
-          "es-module-shims"
-        ],
+        "polyfills": ["zone.js", "es-module-shims"],
         "tsConfig": "apps/mfes/cart-mfe/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -68,9 +61,7 @@
             "input": "apps/mfes/cart-mfe/public"
           }
         ],
-        "styles": [
-          "apps/mfes/cart-mfe/src/styles.scss"
-        ],
+        "styles": ["apps/mfes/cart-mfe/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -109,7 +100,7 @@
       },
       "defaultConfiguration": "development",
       "options": {
-        "port": 4201
+        "port": 4202
       }
     }
   }

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "start": "nx run-many -t serve -p=tag:type:mfe,tag:type:shell",
     "postinstall": "node node_modules/@angular-architects/native-federation/src/patch-angular-build.js"
   },
   "private": true,
