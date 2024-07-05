@@ -1,2 +1,9 @@
-<h1>Welcome cart-mfe</h1>
-<router-outlet></router-outlet>
+<div class="flex flex-col gap">
+  @for (p of cart()?.products; track p.productId) {
+    <div class="card w-full bg-base-100 shadow-xl">
+      <div class="card-body">
+        <span>{{ p.productId }}</span>
+      </div>
+    </div>
+  }
+</div>
