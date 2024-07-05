@@ -1,2 +1,16 @@
-<h1>Welcome products-mfe</h1>
-<router-outlet></router-outlet>
+<div class="flex flex-wrap gap-8">
+  @for (p of productsService$ | async; track p.id) {
+    <div class="card max-w-[450px] bg-base-100 shadow-xl">
+      <figure class="w-full h-[200px]">
+        <img [src]="p.image" alt="Shoes" />
+      </figure>
+      <div class="card-body">
+        <h2 class="card-title">{{ p.title }}</h2>
+        <p>{{ p.description | slice: 0 : 100 }}</p>
+        <div class="card-actions justify-end">
+          <button class="btn btn-primary">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  }
+</div>
