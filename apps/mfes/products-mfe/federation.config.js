@@ -2,10 +2,10 @@ const { withNativeFederation, shareAll } = require('@angular-architects/native-f
 
 module.exports = withNativeFederation({
 
-  name: 'ecommerce-mfe-app',
+  name: 'products-mfe',
 
   exposes: {
-    './Component': './apps/ecommerce-mfe-app/src/app/app.component.ts',
+    './Component': './apps/mfes/products-mfe/src/app/app.component.ts',
   },
 
   shared: {

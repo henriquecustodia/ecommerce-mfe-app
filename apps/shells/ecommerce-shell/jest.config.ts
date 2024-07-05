@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'ecommerce-mfe-app',
-  preset: '../../jest.preset.js',
+  displayName: 'ecommerce-shell',
+  preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/ecommerce-mfe-app',
+  coverageDirectory: '../../../coverage/apps/shells/ecommerce-shell',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
