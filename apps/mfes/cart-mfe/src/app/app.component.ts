@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CartService } from './shared/services/cart.service';
-import { Cart } from './shared/interfaces/cart.interface';
+import { CartService } from '@ecommerce-shell/access-data';
+import { Cart } from '@ecommerce-shell/models';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,7 @@ export class AppComponent {
   cart = signal<Cart | null>(null);
 
   ngOnInit(): void {
-    this.cartService.getOne(5).subscribe((cart) => {
+    this.cartService.get().subscribe((cart) => {
       this.cart.set(cart);
     })  
   }

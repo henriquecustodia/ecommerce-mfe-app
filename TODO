@@ -1,7 +1,9 @@
 Para fazer: 
-    ☐ Corrigir carregamento de CSS dos MFEs 
-    ☐ Instalar json-server
+    ✔ Corrigir carregamento de CSS dos MFEs @done(24-07-09 21:12)
+    ✔ Instalar json-server @done(24-07-09 21:12)
 
     Services: 
-        ☐ Criar service de produtos
-        ☐ Criar service de carrinho
+        ✔ Criar service de produtos @done(24-07-09 21:12)
+        ✔ Criar service de carrinho @done(24-07-09 21:12)
+    
+    ☐ Criar comunicação entre MFE e Shell para adicionar um produto ao carrinho

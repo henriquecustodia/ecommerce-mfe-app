@@ -7,7 +7,7 @@ export const routes: Routes = [
     outlet: 'products',
     loadComponent: () =>
       loadRemoteModule({
-        remoteEntry: 'http://localhost:4202/remoteEntry.json',
+        remoteEntry: 'http://localhost:4201/remoteEntry.json',
         exposedModule: './Component',
       }).then((m) => m.AppComponent),
   },
@@ -16,7 +16,7 @@ export const routes: Routes = [
     outlet: 'cart',
     loadComponent: () =>
       loadRemoteModule({
-        remoteEntry: 'http://localhost:4201/remoteEntry.json',
+        remoteEntry: 'http://localhost:4202/remoteEntry.json',
         exposedModule: './Component',
       }).then((m) => m.AppComponent),
   },

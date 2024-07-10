@@ -1,8 +1,8 @@
-<div class="flex flex-col gap">
-  @for (p of cart()?.products; track p.productId) {
+<div class="flex flex-col gap-4">
+  @for (p of cart()?.products; track p.id) {
     <div class="card w-full bg-base-100 shadow-xl">
       <div class="card-body">
-        <span>{{ p.productId }}</span>
+        <span>{{ p.title }}</span>
       </div>
     </div>
   }
