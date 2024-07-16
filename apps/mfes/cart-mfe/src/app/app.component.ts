@@ -5,9 +5,17 @@ import { CartEventHandlerService } from '@ecommerce-shell/cart-event-handler';
 import { EventHandlerService } from '@ecommerce-shell/event-handler';
 import { Cart, Product } from '@ecommerce-shell/models';
 import { forkJoin, map, Observable, switchMap } from 'rxjs';
+import { GetCartFacadeService } from './shared/facades/get-cart.service';
+import { ResolvedCart } from './shared/interfaces/resolved-cart.interface';
 
 class CartViewModel {
   products: Product[] = [];
+
+  constructor(resolvedCart?: ResolvedCart) {
+    if (resolvedCart) {
+      this.products = resolvedCart.products;
+    }
+  }
 }
 
 @Component({
@@ -18,37 +26,24 @@ class CartViewModel {
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  cartService = inject(CartService);
-  productsService = inject(ProductsService);
   cartEventHandlerService = inject(CartEventHandlerService);
+  getCartFacadeService = inject(GetCartFacadeService);
 
   cartVM = signal<CartViewModel>(new CartViewModel());
 
   products = computed(() => this.cartVM().products);
 
   ngOnInit(): void {
-    this.getCart().subscribe((cart) => {
-      this.cartVM.set(cart);
-    });
+    this.getCart();
 
     this.cartEventHandlerService.onCartUpdated().subscribe(() => {
-      this.getCart().subscribe((cart) => {
-        this.cartVM.set(cart);
-      });
-    })
+      this.getCart();
+    });
   }
 
-  getCart(): Observable<CartViewModel> {
-    return this.cartService.get().pipe(
-      map(({ products }) =>
-        products.map((id) => this.productsService.getProductById(id))
-      ),
-      switchMap((observables) => forkJoin(observables)),
-      map((products) => {
-        return {
-          products,
-        };
-      })
-    );
+  getCart() {
+    return this.getCartFacadeService.getCart().subscribe((cart) => {
+      this.cartVM.set(cart);
+    });
   }
 }
