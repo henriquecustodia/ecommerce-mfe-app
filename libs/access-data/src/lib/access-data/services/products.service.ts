@@ -12,4 +12,8 @@ export class ProductsService {
   getProducts() {
     return this.httpClient.get<Product[]>('/api/products');
   }
+
+  getProductById(id: string) {
+    return this.httpClient.get<Product>(`/api/products/${id}`);
+  }
 }

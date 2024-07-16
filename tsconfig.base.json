@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@ecommerce-shell/access-data": ["libs/access-data/src/index.ts"],
+      "@ecommerce-shell/event-handler": ["libs/event-handler/src/index.ts"],
       "@ecommerce-shell/models": ["libs/models/src/index.ts"]
     }
   },
