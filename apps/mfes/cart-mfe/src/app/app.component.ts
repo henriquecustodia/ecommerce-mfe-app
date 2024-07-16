@@ -1,6 +1,7 @@
 import { Component, inject, signal, OnInit, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CartService, ProductsService } from '@ecommerce-shell/access-data';
+import { CartEventHandlerService } from '@ecommerce-shell/cart-event-handler';
 import { EventHandlerService } from '@ecommerce-shell/event-handler';
 import { Cart, Product } from '@ecommerce-shell/models';
 import { forkJoin, map, Observable, switchMap } from 'rxjs';
@@ -19,7 +20,7 @@ class CartViewModel {
 export class AppComponent implements OnInit {
   cartService = inject(CartService);
   productsService = inject(ProductsService);
-  eventHandlerService = inject(EventHandlerService);
+  cartEventHandlerService = inject(CartEventHandlerService);
 
   cartVM = signal<CartViewModel>(new CartViewModel());
 
@@ -30,11 +31,11 @@ export class AppComponent implements OnInit {
       this.cartVM.set(cart);
     });
 
-    this.eventHandlerService.listen('cart-updated').subscribe(() => {
+    this.cartEventHandlerService.onCartUpdated().subscribe(() => {
       this.getCart().subscribe((cart) => {
         this.cartVM.set(cart);
       });
-    });
+    })
   }
 
   getCart(): Observable<CartViewModel> {

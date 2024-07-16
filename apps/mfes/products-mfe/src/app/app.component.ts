@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CartService, ProductsService } from '@ecommerce-shell/access-data';
 import { CommonModule } from '@angular/common';
 import { Product } from '@ecommerce-shell/models';
-import { EventHandlerService } from '@ecommerce-shell/event-handler';
+import { CartEventHandlerService } from '@ecommerce-shell/cart-event-handler';
 
 @Component({
   selector: 'app-root',
@@ -14,13 +14,13 @@ import { EventHandlerService } from '@ecommerce-shell/event-handler';
 export class AppComponent {
   productsService = inject(ProductsService);
   cartService = inject(CartService);
-  eventHandlerService = inject(EventHandlerService);
+  cartEventHandlerService = inject(CartEventHandlerService);
 
   productsService$ = this.productsService.getProducts();
   
   onBuy(product: Product) {
     this.cartService.addProduct(product).subscribe(() => {
-      this.eventHandlerService.emit('cart-updated');
+      this.cartEventHandlerService.updateCart();
     })
   }
 }
