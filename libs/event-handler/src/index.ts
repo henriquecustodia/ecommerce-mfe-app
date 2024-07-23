@@ -1,1 +1,1 @@
-export * from './lib/event-handler.service';
+export * from './lib/event-handler';

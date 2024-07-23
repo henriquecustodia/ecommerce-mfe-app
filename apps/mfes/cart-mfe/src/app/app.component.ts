@@ -1,10 +1,7 @@
 import { Component, inject, signal, OnInit, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CartService, ProductsService } from '@ecommerce-shell/access-data';
 import { CartEventHandlerService } from '@ecommerce-shell/cart-event-handler';
-import { EventHandlerService } from '@ecommerce-shell/event-handler';
-import { Cart, Product } from '@ecommerce-shell/models';
-import { forkJoin, map, Observable, switchMap } from 'rxjs';
+import { Product } from '@ecommerce-shell/models';
 import { GetCartFacadeService } from './shared/facades/get-cart.service';
 import { ResolvedCart } from './shared/interfaces/resolved-cart.interface';
 
@@ -36,7 +33,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.getCart();
 
-    this.cartEventHandlerService.onCartUpdated().subscribe(() => {
+    this.cartEventHandlerService.updateCart.listen().subscribe(() => {
       this.getCart();
     });
   }

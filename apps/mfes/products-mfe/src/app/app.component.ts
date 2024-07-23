@@ -20,7 +20,7 @@ export class AppComponent {
   
   onBuy(product: Product) {
     this.cartService.addProduct(product).subscribe(() => {
-      this.cartEventHandlerService.updateCart();
+      this.cartEventHandlerService.updateCart.emit();
     })
   }
 }
