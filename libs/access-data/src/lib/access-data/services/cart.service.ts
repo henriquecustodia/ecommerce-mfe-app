@@ -16,7 +16,7 @@ export class CartService {
   addProduct(product: Product) {
     return this.get().pipe(
       map((cart) => {
-        return cart.products
+        return cart.products;
       }),
       switchMap((products) => {
         const payload: Cart = {
@@ -24,6 +24,21 @@ export class CartService {
         };
 
         return this.httpClient.put('/api/cart', payload);
+      })
+    );
+  }
+
+  removeProduct(productId: string) {
+    return this.get().pipe(
+      map((cart) => {
+        return cart.products;
+      }),
+      switchMap((products) => {
+        const payload: Cart = {
+          products: products.filter((id) => id !== productId),
+        };
+
+        return this.httpClient.put<Cart>('/api/cart', payload);
       })
     );
   }

@@ -1,9 +1,25 @@
 <div class="flex flex-col gap-4">
-  @for (p of products(); track p) {
-    <div class="card w-full bg-base-100 shadow-xl">
-      <div class="card-body">
-        <span>{{ p.title }}</span>
+  @for (p of cartVM.products(); track p) {
+  <div class="card w-full bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">{{ p.title }}</h2>
+      <div class="card-actions justify-end">
+        <button class="btn btn-outline btn-error" (click)="onRemove(p)">
+          Remover
+        </button>
       </div>
     </div>
+  </div>
   }
+
+  <div class="divider"></div>
+
+  <div class="card w-full bg-base-100 shadow-xl">
+    <div class="card-body flex-row">
+      <strong>Total:</strong>
+      <div class="ml-auto">
+        <span>{{ cartVM.total() | currency }}</span>
+      </div>
+    </div>
+  </div>
 </div>
