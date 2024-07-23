@@ -7,3 +7,13 @@ Para fazer:
         ✔ Criar service de carrinho @done(24-07-09 21:12)
     
     ✔ Criar comunicação entre MFE e Shell para adicionar um produto ao carrinho @done(24-07-23 19:22)
+
+    Cart: 
+        ✔ Cria botão para remover um item do carrinho @done(24-07-23 20:42)
+        ☐ Cria contador de quantidade para os produtos no carrinho
+    
+    backoffice:
+        ☐ Criar página para adicionar produto
+        ☐ Criar página para editar produto
+        ☐ Criar página de listagem de produtos
+            ☐ Criar ação de remover produto
