@@ -1,29 +1,41 @@
 import { Component, inject, signal, OnInit, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CartEventHandlerService } from '@ecommerce-shell/cart-event-handler';
-import { Product } from '@ecommerce-shell/models';
+import { CartItem, Product } from '@ecommerce-shell/models';
 import { GetCartFacadeService } from './shared/facades/get-cart.service';
 import { CartService } from '@ecommerce-shell/access-data';
 import { CurrencyPipe } from '@angular/common';
+import { ResolvedCart, ResolvedCartItem } from './shared/interfaces/resolved-cart.interface';
 
 class CartViewModel {
-  
-  #products = signal<Product[]>([]);
+  #cart = signal<ResolvedCart | null>(null);
 
-  get products() {
-    return computed(() => this.#products());
+  items = computed(() => this.#cart()?.items);
+
+  total = computed(() =>
+    this.items()?.reduce(
+      (total, { product, quantity }) => total + product.price * quantity,
+      0
+    )
+  );
+
+  setCart(cart: ResolvedCart) {
+    this.#cart.set(cart);
   }
 
-  get total() {
-    return computed(() => this.products().reduce((total, product) => total + product.price, 0));
-  }
+  removeItem(product: Product) {
+    this.#cart.update((cart) => {
+      if (!cart) {
+        return cart;
+      }
 
-  setProducts(products: Product[]) {
-    this.#products.set(products);
-  }
+      const itemIndex = cart.items.findIndex(
+        (item) => item.product.id !== product.id
+      );
+      cart.items.splice(itemIndex, 1);
 
-  removeProduct(product: Product) {
-    this.#products.update((products) => products.filter((p) => p.id !== product.id));
+      return cart;
+    });
   }
 }
 
@@ -51,13 +63,35 @@ export class AppComponent implements OnInit {
 
   getCart() {
     return this.getCartFacadeService.getCart().subscribe((cart) => {
-      this.cartVM.setProducts(cart.products);
+      this.cartVM.setCart(cart);
     });
   }
 
   onRemove(product: Product) {
     this.cartService.removeProduct(product.id).subscribe(() => {
-      this.cartVM.removeProduct(product);
+      this.cartVM.removeItem(product);
     });
+  }
+
+  incrementQuantiy(item: ResolvedCartItem) {
+
+
+    this.cartService
+    .updateItemQuantity(item.id, item.quantity + 1)
+    .subscribe(() => {
+      this.getCart();
+    });
+  }
+
+  decrementQuantiy(item: ResolvedCartItem) {
+    if(item.quantity === 1) {
+      return;
+    }
+
+    this.cartService
+      .updateItemQuantity(item.id, item.quantity - 1)
+      .subscribe(() => {
+        this.getCart();
+      });
   }
 }

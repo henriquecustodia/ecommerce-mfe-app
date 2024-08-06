@@ -20,6 +20,17 @@
     }
   ],
   "cart": {
-    "products": []
+    "items": [
+      {
+        "id": "019129e4-1769-7dd8-b047-29e4d2c5ea78",
+        "productId": "2",
+        "quantity": 9
+      },
+      {
+        "id": "01912a09-7b1d-744e-a616-1c791aa29903",
+        "productId": "1",
+        "quantity": 3
+      }
+    ]
   }
 }

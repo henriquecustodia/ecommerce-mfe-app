@@ -1,17 +1,17 @@
-Para fazer: 
+Para fazer:
     ✔ Corrigir carregamento de CSS dos MFEs @done(24-07-09 21:12)
     ✔ Instalar json-server @done(24-07-09 21:12)
 
-    Services: 
+    Services:
         ✔ Criar service de produtos @done(24-07-09 21:12)
         ✔ Criar service de carrinho @done(24-07-09 21:12)
-    
+
     ✔ Criar comunicação entre MFE e Shell para adicionar um produto ao carrinho @done(24-07-23 19:22)
 
-    Cart: 
+    Cart:
         ✔ Cria botão para remover um item do carrinho @done(24-07-23 20:42)
-        ☐ Cria contador de quantidade para os produtos no carrinho
-    
+        ✔ Cria contador de quantidade para os produtos no carrinho @done(24-08-06 20:34)
+
     backoffice:
         ☐ Criar página para adicionar produto
         ☐ Criar página para editar produto

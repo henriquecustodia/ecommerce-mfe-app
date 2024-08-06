@@ -1,10 +1,19 @@
 <div class="flex flex-col gap-4">
-  @for (p of cartVM.products(); track p) {
+  @for (item of cartVM.items(); track item.product.id) {
   <div class="card w-full bg-base-100 shadow-xl">
     <div class="card-body">
-      <h2 class="card-title">{{ p.title }}</h2>
-      <div class="card-actions justify-end">
-        <button class="btn btn-outline btn-error" (click)="onRemove(p)">
+      <h2 class="card-title">{{ item.product.title }}</h2>
+      <div class="card-actions justify-end items-center space-x-4">
+        <div class="flex">
+          <button class="btn btn-primary btn-xs" (click)="decrementQuantiy(item)">-</button>
+          <span class="mx-2">{{ item.quantity }}</span>
+          <button class="btn btn-primary btn-xs" (click)="incrementQuantiy(item)">+</button>
+        </div>
+
+        <button
+          class="btn btn-outline btn-error"
+          (click)="onRemove(item.product)"
+        >
           Remover
         </button>
       </div>

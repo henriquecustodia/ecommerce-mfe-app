@@ -20,7 +20,8 @@
         "libs/cart-event-handler/src/index.ts"
       ],
       "@ecommerce-shell/event-handler": ["libs/event-handler/src/index.ts"],
-      "@ecommerce-shell/models": ["libs/models/src/index.ts"]
+      "@ecommerce-shell/models": ["libs/models/src/index.ts"],
+      "@ecommerce-shell/utils/uuid": ["libs/utils/uuid/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
