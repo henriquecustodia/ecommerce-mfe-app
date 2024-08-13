@@ -17,3 +17,7 @@ Para fazer:
         ☐ Criar página para editar produto
         ☐ Criar página de listagem de produtos
             ☐ Criar ação de remover produto
+
+    backend:
+      ☐ Criar projeto usando Nest
+      ☐ Criar banco de dados usando Docker e MySql
