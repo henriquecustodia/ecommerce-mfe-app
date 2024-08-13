@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "run-p start:*",
+    "start": "rm -fdr .angular/cache/18.0.7/vite && run-p start:*",
     "start:apps": "nx run-many -t serve -p=tag:type:mfe,tag:type:shell",
     "start:server": "json-server json-server/db.json",
     "postinstall": "node node_modules/@angular-architects/native-federation/src/patch-angular-build.js"
