@@ -1,9 +1,11 @@
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { Routes } from '@angular/router';
+import { EcommerceViewComponent } from './ecommerce-view.component';
 
 export const routes: Routes = [
   {
     path: '',
+    component: EcommerceViewComponent,
     children: [
       {
         path: '',
@@ -25,4 +27,12 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      loadRemoteModule({
+        remoteEntry: 'http://localhost:4203/remoteEntry.json',
+        exposedModule: './Routes',
+      }).then((m) => m.mfeRoutes),
+  }
 ];

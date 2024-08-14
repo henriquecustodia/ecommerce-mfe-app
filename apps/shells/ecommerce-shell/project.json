@@ -5,7 +5,7 @@
   "prefix": "app",
   "sourceRoot": "apps/shells/ecommerce-shell/src",
   "tags": ["type:shell"],
-  "implicitDependencies": ["cart-mfe", "products-mfe"],
+  "implicitDependencies": ["cart-mfe", "products-mfe", "dashboard-mfe"],
   "targets": {
     "build": {
       "executor": "@angular-architects/native-federation:build",

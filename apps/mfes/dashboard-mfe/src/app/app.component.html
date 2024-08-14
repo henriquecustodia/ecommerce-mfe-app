@@ -1,1 +1,21 @@
-<app-nx-welcome></app-nx-welcome> <router-outlet></router-outlet>
+<div class="navbar bg-primary">
+  <div class="flex-1">
+    <a class="btn btn-ghost text-base-100" routerLink="/dashboard">Dashboard</a>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      <li>
+        <a class="btn btn-ghost text-base-100" routerLink="/"
+          >Acessar E-commerce</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>
+
+<main class="flex w-full justify-center">
+  <div class="w-full max-w-3xl my-4">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+

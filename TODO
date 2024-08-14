@@ -13,10 +13,10 @@ Para fazer:
         ✔ Cria contador de quantidade para os produtos no carrinho @done(24-08-06 20:34)
 
     backoffice:
-        ☐ Criar página para adicionar produto
+      ☐ Criar página de listagem de produtos @started(24-08-13 21:02)
+        ☐ Criar ação de remover produto
         ☐ Criar página para editar produto
-        ☐ Criar página de listagem de produtos
-            ☐ Criar ação de remover produto
+      ☐ Criar página para adicionar produto
 
     backend:
       ☐ Criar projeto usando Nest

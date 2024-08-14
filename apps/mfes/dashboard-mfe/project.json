@@ -4,7 +4,7 @@
   "projectType": "application",
   "prefix": "app",
   "sourceRoot": "apps/mfes/dashboard-mfe/src",
-  "tags": [],
+  "tags": ["type:mfe"],
   "targets": {
     "build": {
       "executor": "@angular-architects/native-federation:build",

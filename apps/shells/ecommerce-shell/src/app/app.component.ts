@@ -5,9 +5,6 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, RouterLink],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  template: `<router-outlet></router-outlet>`,
 })
-export class AppComponent {
-  title = 'ecommerce-shell';
-}
+export class AppComponent {}
