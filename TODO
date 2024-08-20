@@ -5,18 +5,18 @@ Para fazer:
     Services:
         ✔ Criar service de produtos @done(24-07-09 21:12)
         ✔ Criar service de carrinho @done(24-07-09 21:12)
-
-    ✔ Criar comunicação entre MFE e Shell para adicionar um produto ao carrinho @done(24-07-23 19:22)
+        ✔ Criar comunicação entre MFE e Shell para adicionar um produto ao carrinho @done(24-07-23 19:22)
 
     Cart:
         ✔ Cria botão para remover um item do carrinho @done(24-07-23 20:42)
         ✔ Cria contador de quantidade para os produtos no carrinho @done(24-08-06 20:34)
 
     backoffice:
-      ☐ Criar página de listagem de produtos @started(24-08-13 21:02)
-        ☐ Criar ação de remover produto
-        ☐ Criar página para editar produto
-      ☐ Criar página para adicionar produto
+      ✔ Criar página de listagem de produtos @started(24-08-13 21:02) @done(24-08-20 20:48) @lasted(6d23h46m42s)
+        ✔ Criar ação de remover produto @done(24-08-20 20:48)
+        ✔ Criar página para editar produto @done(24-08-20 20:48)
+      ✔ Criar página para adicionar produto @done(24-08-20 20:48)
+      ☐ Adicionar máscara de moeda nos campos de preço
 
     backend:
       ☐ Criar projeto usando Nest

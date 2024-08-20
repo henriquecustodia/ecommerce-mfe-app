@@ -1,0 +1,55 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="flex flex-wrap justify-center gap-4">
+    <label class="form-control w-full">
+      <div class="label">
+        <span class="label-text">Título</span>
+      </div>
+      <input
+        type="text"
+        placeholder="Qual o título do produto?"
+        class="input input-bordered w-full"
+        name="title"
+        formControlName="title"
+      />
+    </label>
+    <label class="form-control w-full">
+      <div class="label">
+        <span class="label-text">Preço</span>
+      </div>
+      <input
+        type="text"
+        placeholder="Qual o preço do produto?"
+        class="input input-bordered w-full"
+        name="price"
+        formControlName="price"
+      />
+    </label>
+    <label class="form-control w-full">
+      <div class="label">
+        <span class="label-text">Descrição</span>
+      </div>
+      <textarea
+        placeholder="Digite uma descrição do produto"
+        class="textarea textarea-bordered h-24"
+        name="description"
+        formControlName="description"
+      ></textarea>
+    </label>
+    <label class="form-control w-full">
+      <div class="label">
+        <span class="label-text">Imagem de capa</span>
+      </div>
+      <input
+        type="text"
+        placeholder="Digite uma url da imagem"
+        class="input input-bordered w-full"
+        name="image"
+        formControlName="image"
+      />
+    </label>
+  </div>
+
+  <div class="flex justify-end my-4">
+    <button class="btn btn-primary" type="submit">Cadastrar</button>
+  </div>
+</form>

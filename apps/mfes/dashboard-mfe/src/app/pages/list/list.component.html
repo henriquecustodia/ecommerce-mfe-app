@@ -1,36 +1,44 @@
-<div class="overflow-x-auto">
+<section class="flex justify-end">
+  <button class="btn btn-primary" routerLink="/dashboard/create">
+    Criar Produto
+  </button>
+</section>
+
+<div class="divider"></div>
+
+<h1 class="text-4xl text-center">Produtos</h1>
+
+<div class="overflow-x-auto w-full">
   <table class="table">
-    <!-- head -->
     <thead>
       <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
+        <th>Título</th>
+        <th>Preço</th>
+        <th class="w-40"></th>
       </tr>
     </thead>
     <tbody>
-      <!-- row 1 -->
-      <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td>Blue</td>
-      </tr>
-      <!-- row 2 -->
+      @for (product of products(); track product.id) {
       <tr class="hover">
-        <th>2</th>
-        <td>Hart Hagerty</td>
-        <td>Desktop Support Technician</td>
-        <td>Purple</td>
+        <td>{{ product.title }}</td>
+        <td>{{ product.price | currency }}</td>
+        <td class="space-x-4">
+          <a
+            class="btn btn-primary btn-xs"
+            [routerLink]="['/dashboard/edit/', product.id]"
+            >Editar</a
+          >
+
+          <button class="btn btn-error btn-xs" (click)="onDelete(product)">
+            Deletar
+          </button>
+        </td>
       </tr>
-      <!-- row 3 -->
+      } @empty {
       <tr>
-        <th>3</th>
-        <td>Brice Swyre</td>
-        <td>Tax Accountant</td>
-        <td>Red</td>
+        <td colspan="3" class="text-center">Nenhum resultado encontrado</td>
       </tr>
+      }
     </tbody>
   </table>
 </div>
