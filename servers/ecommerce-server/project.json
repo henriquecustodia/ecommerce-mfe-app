@@ -1,0 +1,31 @@
+{
+  "name": "ecommerce-server",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "servers/ecommerce-server/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ecommerce-server:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ecommerce-server:build:development"
+        },
+        "production": {
+          "buildTarget": "ecommerce-server:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "servers/ecommerce-server/jest.config.ts"
+      }
+    }
+  }
+}
