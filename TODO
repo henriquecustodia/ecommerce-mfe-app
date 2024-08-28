@@ -19,5 +19,8 @@ Para fazer:
       ☐ Adicionar máscara de moeda nos campos de preço
 
     backend:
-      ☐ Criar projeto usando Nest
+      ✔ Criar projeto usando Nest @done(24-08-27 21:34)
+        as dependencias do Nest conflitam com native federation. tive que mudar algumas deps para
+        devDependencies e outras precisei incluir no array de skip
+        ☐ aplicação está com erro em runtime
       ☐ Criar banco de dados usando Docker e MySql
